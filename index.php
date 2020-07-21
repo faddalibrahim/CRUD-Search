@@ -48,21 +48,29 @@
     <main>
 
         <!-- success and error messages -->
-        <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? '' ?>
+        <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? $_GET['deletes'] ?? '' ?>
 
         <!-- ADD FORM -->
         <form id="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off" id="addForm">
             <input type="text" placeholder="enter item" required name="item">
             <input type="submit" value="add" name="add">
         </form>
+        
+        <!-- ACTION BUTTONS -->
+        <br>
+        <button id="delete-multiple-button">delete multiple</button>
+        <button id="delete-all-button">delete all</button>
+        <button id="update-multiple-button">update multiple</button>
+        <br>
+        <br>
 
         <!-- TODOS -->
         <div class="todos">
             <?php if($todos): ?>
                 <?php foreach ($todos as $todo): ?>
                     <div class="todo">
+                        <input type="checkbox" name="" data-id="<?php echo htmlspecialchars($todo['id'])?>" hidden>
                         <?php echo htmlspecialchars($todo['name']) ?>
-                        
                         <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>">delete</a>
                         <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
                         <button value="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>">update</button>
@@ -82,6 +90,15 @@
             <input type="hidden" required name="origin" value="index_page">
             <input type="submit" value="update" name="update">
           </form>
+        </div>
+
+        <button id="delete-selected-button" hidden>deleted selected</button>
+
+        <!-- DELETE ALL PROMPT -->
+        <div id="delete-selected-prompt">
+          <span>Are you sure you wanna delete the selected items</span>
+          <a href="" id="yes-delete-selected">Yes</a>
+          <a href="delete-all.php?">No</a>
         </div>
     </main>
     

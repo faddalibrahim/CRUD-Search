@@ -9,7 +9,7 @@ main{
   height: 100vh;
 }
 
-#update-form-container{
+#update-form-container, #delete-selected-prompt{
   position: absolute;
   top: 50%;
   left: 50%;

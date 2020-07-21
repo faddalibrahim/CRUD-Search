@@ -14,10 +14,10 @@
    
 
     if($result){
-        header('location: index.php?add=success');
+        header('location: index.php?add=added to database');
     }else{
         // echo "Error: ".mysqli_error($conn);
-        header('location: index.php?add=failed');
+        header('location: index.php?add=failed to add to database');
     }
 
 
