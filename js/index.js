@@ -21,15 +21,15 @@ document.getElementById("delete-multiple-button").addEventListener("click",funct
 })
 
 
-document.getElementById("delete-selected-button").addEventListener("click",function(){
-	let checkedIds = Array.from(document.querySelectorAll(".todo input[type=checkbox]"))
-			  		.filter(checkbox => checkbox.checked)
-			  		.map(checkbox => Number(checkbox.dataset.id));
+// document.getElementById("delete-selected-button").addEventListener("click",function(){
+// 	let checkedIds = Array.from(document.querySelectorAll(".todo input[type=checkbox]"))
+// 			  		.filter(checkbox => checkbox.checked)
+// 			  		.map(checkbox => Number(checkbox.dataset.id));
 
-	let stringedIds = JSON.stringify(checkedIds);
+// 	let stringedIds = JSON.stringify(checkedIds);
 
 
-	document.getElementById("delete-selected-prompt").style.display = "flex"; //show prompt overlay
+// 	document.getElementById("delete-selected-prompt").style.display = "flex"; //show prompt overlay
 
-	document.getElementById("yes-delete-selected").href = "delete-all.php?ids=" + stringedIds; // add ids array to href of "yes" button
-})
+// 	document.getElementById("yes-delete-selected").href = "delete-all.php?ids=" + stringedIds; // add ids array to href of "yes" button
+// })

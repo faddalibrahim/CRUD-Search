@@ -67,15 +67,18 @@
         <!-- TODOS -->
         <div class="todos">
             <?php if($todos): ?>
+              <form method="post" action="delete-all.php" id="delete-selected-form">
                 <?php foreach ($todos as $todo): ?>
                     <div class="todo">
-                        <input type="checkbox" name="" data-id="<?php echo htmlspecialchars($todo['id'])?>" hidden>
+                        <input type="checkbox" name="deletes[]" value="<?php echo htmlspecialchars($todo['id'])?>" hidden>
                         <?php echo htmlspecialchars($todo['name']) ?>
                         <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>">delete</a>
                         <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
                         <button value="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>">update</button>
                     </div>
                 <?php endforeach ?>
+                  <button id="delete-selected-button" hidden type="submit" name="delete_multiple">deleted selected</button>
+              </form>
             <?php else: ?>
                 <span style="color: #aaa">no items added yet</span>
             <?php endif ?>
@@ -92,7 +95,7 @@
           </form>
         </div>
 
-        <button id="delete-selected-button" hidden>deleted selected</button>
+        <!-- <button id="delete-selected-button" hidden>deleted selected</button> -->
 
         <!-- DELETE ALL PROMPT -->
         <div id="delete-selected-prompt">
