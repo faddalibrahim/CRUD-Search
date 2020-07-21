@@ -1,9 +1,7 @@
 <?php
 
-    if(isset($_POST['delete_multiple'])){
+    if(isset($_POST['deletes'])){
         include("config/db_connect.php");
-
-        print_r($_POST['deletes']);
 
 
         function escape($id){
@@ -28,7 +26,5 @@
     else{
         header("location: index.php");
     }
-
-
 
 ?>

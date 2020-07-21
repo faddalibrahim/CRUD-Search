@@ -33,3 +33,17 @@ document.getElementById("delete-multiple-button").addEventListener("click",funct
 
 // 	document.getElementById("yes-delete-selected").href = "delete-all.php?ids=" + stringedIds; // add ids array to href of "yes" button
 // })
+
+
+//taget form, prevent default, show prompt overlay, if yes is clicked -- submit form
+document.getElementById("delete-selected-form").addEventListener("submit",function(e){
+	e.preventDefault();
+
+	document.getElementById("delete-selected-prompt").style.display = "flex"; //show prompt overlay
+
+	document.getElementById("yes-delete-selected").addEventListener("click", () => {
+		this.submit();
+		// alert("it works up to here")
+		// console.log(this);
+	})
+})

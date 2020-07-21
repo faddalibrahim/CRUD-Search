@@ -100,7 +100,7 @@
         <!-- DELETE ALL PROMPT -->
         <div id="delete-selected-prompt">
           <span>Are you sure you wanna delete the selected items</span>
-          <a href="" id="yes-delete-selected">Yes</a>
+          <span id="yes-delete-selected">Yes</span>
           <a href="delete-all.php?">No</a>
         </div>
     </main>
