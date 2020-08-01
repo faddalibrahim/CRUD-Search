@@ -47,39 +47,56 @@
 <body>
     <main>
 
-        <!-- success and error messages -->
-        <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? $_GET['deletes'] ?? '' ?>
 
-        <!-- ADD FORM -->
-        <form id="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off" id="addForm">
-            <input type="text" placeholder="enter item" required name="item">
-            <input type="submit" value="add" name="add">
-        </form>
-        
-        <!-- ACTION BUTTONS -->
-        <br>
-        <button id="delete-multiple-button">delete multiple</button>
-        <button id="delete-all-button">delete all</button>
-        <button id="update-multiple-button">update multiple</button>
-        <br>
-        <br>
+      <div class="crud">
+        <h2 class="header">
+          <center>CRUD</center>
+        </h2>
 
-        <!-- TODOS -->
-        <div class="todos">
-            <?php if($todos): ?>
-                <?php foreach ($todos as $todo): ?>
-                    <div class="todo">
-                        <input type="checkbox" name="" data-id="<?php echo htmlspecialchars($todo['id'])?>" hidden>
-                        <?php echo htmlspecialchars($todo['name']) ?>
-                        <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>">delete</a>
-                        <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
-                        <button value="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>">update</button>
-                    </div>
-                <?php endforeach ?>
-            <?php else: ?>
-                <span style="color: #aaa">no items added yet</span>
-            <?php endif ?>
+        <div class="form-body">
+            <!-- success and error messages -->
+            <center style="color: green">
+              <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? $_GET['deletes'] ?? '' ?>
+            </center>
+            <br>
+
+            <!-- ADD FORM -->
+            <form id="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off" id="addForm">
+                <input type="text" placeholder="enter item" required name="item">
+                <input type="submit" value="add" name="add">
+            </form>
+            <br>
+          
+          <!-- ACTION BUTTONS -->
+          <center>
+            <button id="select-multiple-button">select multiple</button>
+          </center>
         </div>
+          
+
+          <!-- TODOS -->
+          <div class="todos">
+              <?php if($todos): ?>
+                  <?php foreach ($todos as $todo): ?>
+                      <div class="todo">
+                          <input type="checkbox" name="" data-id="<?php echo htmlspecialchars($todo['id'])?>" hidden>
+                          <?php echo htmlspecialchars($todo['name']) ?>
+                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>">delete</a>
+                          <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
+                          <button value="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>">update</button>
+                      </div>
+                  <?php endforeach ?>
+              <?php else: ?>
+                  <span style="color: #fff">
+                    <center>
+                      no items added yet
+                    </center>
+                  </span>
+              <?php endif ?>
+          </div>
+          <button id="delete-selected-button" hidden>deleted selected</button>
+      </div>
+
         
         <!-- UPDATE FORM -->
         <div id="update-form-container">
@@ -92,7 +109,6 @@
           </form>
         </div>
 
-        <button id="delete-selected-button" hidden>deleted selected</button>
 
         <!-- DELETE ALL PROMPT -->
         <div id="delete-selected-prompt">

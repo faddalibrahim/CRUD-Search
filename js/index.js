@@ -15,7 +15,7 @@ document.querySelector("#close").addEventListener("click",function(){
 })
 
 
-document.getElementById("delete-multiple-button").addEventListener("click",function(){
+document.getElementById("select-multiple-button").addEventListener("click",function(){
 	document.querySelectorAll(".todo input[type=checkbox]").forEach(checkbox => checkbox.toggleAttribute("hidden")); //show checkboxes
 	document.getElementById("delete-selected-button").toggleAttribute("hidden"); //show delete selected button
 })

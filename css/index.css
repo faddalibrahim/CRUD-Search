@@ -3,10 +3,66 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 main{
-  background-color: #eee;
+  background-color: #333;
   width: 100vw;
   height: 100vh;
+  font-family: roboto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.crud{
+  box-shadow: 0 0 0.5rem 0.1rem rgba(13,12,14,0.2);
+  /*padding: 1rem;*/
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.header{
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background-color: crimson;
+  color: white;
+}
+
+.todos{
+  background-color: crimson;
+  color: white;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 1rem;
+}
+
+.form-body{
+  padding: 1rem;
+}
+
+.form-body input[type=text]{
+  background-color: #222;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  color: #aaa;
+}
+
+.form-body input[type=submit], #select-multiple-button{
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+}
+
+#select-multiple-button{
+
+}
+
+
+#form{
+  display: flex;
 }
 
 #update-form-container, #delete-selected-prompt{
