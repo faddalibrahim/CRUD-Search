@@ -35,8 +35,8 @@
   <title>Todo</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="fontawesome/css/all.min.css" type="text/css">
- <!-- boostrap -->
- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="mdb/css/bootstrap.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/index.css" rel="stylesheet">
   <!--Favicon-->
@@ -44,25 +44,23 @@
   <link rel="icon" type="image/ico" href="img/favicon.ico"/>
 </head>
 
-<body class="d-flex flex-column justify-content-center align-items-center">
-    <main class="container d-flex flex-column">
+<body>
+    <main>
+
         <!-- success and error messages -->
-        <span class="alert alert-success" style="height: 0;">
-          <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? $_GET['deletes'] ?? '' ?>
-        </span>
+        <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? $_GET['deletes'] ?? '' ?>
 
         <!-- ADD FORM -->
         <form id="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off" id="addForm">
-          <div class="d-flex">
-            <input type="text" placeholder="enter item" required name="item" class="form-control" style="box-shadow: none; border-top-right-radius: 0; border-bottom-right-radius: 0">
-            <!-- <input type="submit" value="" name="add" class="btn btn-success" style="border-top-left-radius: 0; border-bottom-left-radius: 0"> -->
-            <button type="submit" value="" name="add" class="btn btn-success" style="border-top-left-radius: 0; border-bottom-left-radius: 0"><i class="fas fa-plus"></i></button>
-          </div>
+            <input type="text" placeholder="enter item" required name="item">
+            <input type="submit" value="add" name="add">
         </form>
         
         <!-- ACTION BUTTONS -->
         <br>
-        <button id="delete-multiple-button" class="btn btn-danger">delete multiple items</button>
+        <button id="delete-multiple-button">delete multiple</button>
+        <button id="delete-all-button">delete all</button>
+        <button id="update-multiple-button">update multiple</button>
         <br>
         <br>
 
@@ -70,16 +68,12 @@
         <div class="todos">
             <?php if($todos): ?>
                 <?php foreach ($todos as $todo): ?>
-                    <div class="todo d-flex justify-content-between align-items-center">
+                    <div class="todo">
                         <input type="checkbox" name="" data-id="<?php echo htmlspecialchars($todo['id'])?>" hidden>
-                        <span style="padding: 0 1rem">
-                          <?php echo htmlspecialchars($todo['name']) ?>
-                        </span>
-                        <div>
-                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                          <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                          <button class="btn btn-primary" value="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>"><i class="fas fa-pen-alt"></i></button>
-                        </div>
+                        <?php echo htmlspecialchars($todo['name']) ?>
+                        <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>">delete</a>
+                        <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
+                        <button value="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>">update</button>
                     </div>
                 <?php endforeach ?>
             <?php else: ?>
@@ -107,13 +101,8 @@
           <a href="delete-all.php?">No</a>
         </div>
     </main>
-
-
-    <!--- Script Source Files -->
-    <script src="bootstrap/js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/index.js"></script>
     
+    <script src="js/index.js"></script>
 
 </body>
 </html>
