@@ -48,7 +48,8 @@
   #parent{
     /*box-shadow: 0 0 1rem 0rem rgba(13,12,14,0.5);*/
     /*box-shadow: 0 0 1rem 0rem #333;*/
-    box-shadow: 0 0 0.5rem 0.1rem #aaa;
+    /*box-shadow: 0 0 0.5rem 0.1rem #aaa;*/
+    box-shadow: 0 0 1rem 0.1rem #222;
     /*border: 0.05rem solid #aaa;*/
     border-radius: 0.5rem;
     padding: 3rem;
