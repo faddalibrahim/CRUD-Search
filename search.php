@@ -42,9 +42,16 @@
 </head>
 
 <style type="text/css">
+  .parent{
+    /*background-color: red;*/
+    /*padding: 1rem;*/
+    /*box-shadow: 0 0 0.5rem 0.05rem #aaa;*/
+  }
+
+
   input[type=submit]{
     padding: 0.5rem;
-    background-color: navy;
+    background-color: purple;
     color: white;
     outline: none;
     border: none;
@@ -52,8 +59,10 @@
     font-size: 1rem;
   }
 
+
+
     .todo{
-      background-color: #eee;
+      background-color: #222;
       margin-bottom: 0;
       margin-top: 0.1rem;
     }
@@ -68,18 +77,21 @@
     padding-left: 0;
     padding-right: 0;
     font-family: roboto;
+    background-color: transparent;
   }
 
   .search-results{
     /*box-shadow: 0 0 0.5rem 0.1rem rgba(13,12,14,0.2);*/
-    border: 0.05rem solid #ccc;
+    /*border: 0.05rem solid #ccc;*/
     border-radius: 0.3rem;
     padding: 1rem 0 0;
+    background-color: rgba(13,12,14,1);
   }
 
   a{
     text-decoration: none;
     opacity: 0;
+    color: violet;
   }
 
 </style>
@@ -87,7 +99,7 @@
 <body>
     <main>
 
-      <div> 
+      <div class="parent"> 
           <!-- SEARCH FORM -->
           <div id="search-form-container">
             <form action="search.php" method="POST" id="search-form" autocomplete="off" class="form-body">
@@ -100,7 +112,7 @@
           <!-- RESULTS -->
           <div class="search-results">
               <?php if($todos): ?>
-                <center style="color: #aaa">  
+                <center style="color: #5cb85c">  
                   <?php echo $resultCount." result(s) matched" ?>
                 </center>
                 <br>
@@ -108,14 +120,14 @@
                       <div class="todo">
                           <?php echo htmlspecialchars($todo['name']) ?>
                           <div> 
-                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: red">delete</a>
+                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: violet">delete</a>
                           <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
 
                           </div>
                       </div>
                   <?php endforeach ?>
               <?php else: ?>
-                  <center style="color: #aaa">no results found</center><br>
+                  <center style="color: #5cb85c">no results found</center><br>
               <?php endif ?>
           </div>
 
