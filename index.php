@@ -49,27 +49,30 @@
 
 
       <div class="crud">
-        <h2 class="header">
+         <button id="select-multiple-button">select multiple</button>
+      <!--   <h2 class="header">
           <center>CRUD</center>
-        </h2>
+        </h2> -->
 
         <div class="form-body">
             <!-- success and error messages -->
-            <center style="color: green">
+            <center style="color: #5cb85c" class="success-error">
               <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? $_GET['deletes'] ?? '' ?>
             </center>
-            <br>
+            <!-- <br> -->
 
             <!-- ADD FORM -->
             <form id="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off" id="addForm">
                 <input type="text" placeholder="enter item" required name="item">
-                <input type="submit" value="add" name="add">
+                <input type="submit" value="add" name="add" id="submit-button">
+               <!--  <label for="submit-button">
+                  <i class="fas fa-plus"></i>
+                </label> -->
             </form>
-            <br>
           
           <!-- ACTION BUTTONS -->
           <center>
-            <button id="select-multiple-button">select multiple</button>
+           
           </center>
         </div>
           
@@ -79,31 +82,37 @@
               <?php if($todos): ?>
                   <?php foreach ($todos as $todo): ?>
                       <div class="todo">
+                        <div class="item">
                           <input type="checkbox" name="" data-id="<?php echo htmlspecialchars($todo['id'])?>" hidden>
                           <?php echo htmlspecialchars($todo['name']) ?>
-                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>">delete</a>
-                          <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
-                          <button value="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>">update</button>
+                        </div>
+                        <div class="action">
+                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: red">delete</a>
+                          <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: purple">view</a>
+                         
+                          <span data-id="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>" class="update-btn" style="color: navy">update</span>
+                        </div>
                       </div>
                   <?php endforeach ?>
               <?php else: ?>
-                  <span style="color: #fff">
+                  <span style="color: #ccc">
                     <center>
                       no items added yet
                     </center>
+                    <br>
                   </span>
               <?php endif ?>
+          <button id="delete-selected-button" hidden>deleted selected items</button>
           </div>
-          <button id="delete-selected-button" hidden>deleted selected</button>
       </div>
 
         
         <!-- UPDATE FORM -->
         <div id="update-form-container">
           <form action="update.php" method="POST" id="update-form" autocomplete="off">
-            <span id="close">close</span>
-            <input type="text" name="new_update" value="" >
-            <input type="hidden" name="id" value="">
+            <span id="close"><i class="fas fa-times"></i></span>
+            <input type="text" name="new_update" value="">
+            <input type="hidden" name="id" value="" class="id-field">
             <input type="hidden" required name="origin" value="index_page">
             <input type="submit" value="update" name="update">
           </form>
@@ -112,7 +121,7 @@
 
         <!-- DELETE ALL PROMPT -->
         <div id="delete-selected-prompt">
-          <span>Are you sure you wanna delete the selected items</span>
+          <h2 style="font-family: roboto">Are you sure you wanna delete the selected items?</h2>
           <a href="" id="yes-delete-selected">Yes</a>
           <a href="delete-all.php?">No</a>
         </div>

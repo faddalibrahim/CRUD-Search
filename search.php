@@ -41,38 +41,86 @@
   <link rel="icon" type="image/ico" href="img/favicon.ico"/>
 </head>
 
+<style type="text/css">
+  input[type=submit]{
+    padding: 0.5rem;
+    background-color: navy;
+    color: white;
+    outline: none;
+    border: none;
+    font-family: roboto;
+    font-size: 1rem;
+  }
+
+    .todo{
+      background-color: #eee;
+      margin-bottom: 0;
+      margin-top: 0.1rem;
+    }
+
+    .todo:hover a{
+        opacity: 1;
+    }
+
+  .form-body{
+    display: flex;
+    /*width: 100%;*/
+    padding-left: 0;
+    padding-right: 0;
+    font-family: roboto;
+  }
+
+  .search-results{
+    /*box-shadow: 0 0 0.5rem 0.1rem rgba(13,12,14,0.2);*/
+    border: 0.05rem solid #ccc;
+    border-radius: 0.3rem;
+    padding: 1rem 0 0;
+  }
+
+  a{
+    text-decoration: none;
+    opacity: 0;
+  }
+
+</style>
+
 <body>
     <main>
 
-        <!-- success and error messages -->
-        <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? '' ?>
+      <div> 
+          <!-- SEARCH FORM -->
+          <div id="search-form-container">
+            <form action="search.php" method="POST" id="search-form" autocomplete="off" class="form-body">
+              <input type="text" name="name" placeholder="search">
+              <input type="submit" value="search" name="search">
+            </form>
+          </div>
 
-       
+
+          <!-- RESULTS -->
+          <div class="search-results">
+              <?php if($todos): ?>
+                <center style="color: #aaa">  
+                  <?php echo $resultCount." result(s) matched" ?>
+                </center>
+                <br>
+                  <?php foreach ($todos as $todo): ?>
+                      <div class="todo">
+                          <?php echo htmlspecialchars($todo['name']) ?>
+                          <div> 
+                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: red">delete</a>
+                          <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
+
+                          </div>
+                      </div>
+                  <?php endforeach ?>
+              <?php else: ?>
+                  <center style="color: #aaa">no results found</center><br>
+              <?php endif ?>
+          </div>
+
+      </div>
         
-        <!-- SEARCH FORM -->
-        <div id="search-form-container">
-          <form action="search.php" method="POST" id="search-form" autocomplete="off">
-            <input type="text" name="name" placeholder="search">
-            <input type="submit" value="search" name="search">
-          </form>
-        </div>
-
-
-        <!-- RESULTS -->
-        <div class="todos">
-            <?php if($todos): ?>
-                <?php echo $resultCount." result(s) matched" ?>
-                <?php foreach ($todos as $todo): ?>
-                    <div class="todo">
-                        <?php echo htmlspecialchars($todo['name']) ?>
-                        <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>">delete</a>
-                        <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>">view</a>
-                    </div>
-                <?php endforeach ?>
-            <?php else: ?>
-                <span style="color: #aaa">no results found</span>
-            <?php endif ?>
-        </div>
 
     </main>
     

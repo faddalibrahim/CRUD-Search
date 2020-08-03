@@ -29,7 +29,8 @@
             if($_POST['origin'] === 'view-page'){
                 header("location: view.php?id=$id_to_update&update=fail");
             }else{
-                header("location: index.php?update=update failed");
+                // header("location: index.php?update=update failed");
+                echo "error";
             }
         }
 

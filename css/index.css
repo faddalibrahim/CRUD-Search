@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
+:root{
+  --theme-color: navy;
+}
+
+
 main{
-  background-color: #333;
   width: 100vw;
   height: 100vh;
   font-family: roboto;
@@ -17,52 +21,143 @@ main{
 
 .crud{
   box-shadow: 0 0 0.5rem 0.1rem rgba(13,12,14,0.2);
-  /*padding: 1rem;*/
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  /*width: 21vw;*/
 }
 
-.header{
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  background-color: crimson;
-  color: white;
+.success-error{
+    -webkit-animation: fade-out 0.5s 2s forwards;
+    -o-animation: fade-out 0.5s 2s forwards;
+    animation: fade-out 0.5s 2s forwards;
+}
+
+@keyframes fade-out{
+  from{
+    opacity: 1;
+  }
+
+  to{
+    opacity: 0;
+  }
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.action{
+  opacity: 0;
+}
+
+.todo:hover .action{
+  opacity: 0.8;
+}
+
+.update-btn{
+    cursor: pointer;
 }
 
 .todos{
-  background-color: crimson;
+  /*background-color: var(--theme-color);*/
+  /*color: white;*/
+  /*border-top-left-radius: 1rem;*/
+  /*border-top-right-radius: 1rem;*/
+  /*padding: 1rem;*/
+  /*border-top: 0.05rem solid #ccc;*/
+  /*color: rgba(13,12,14,0.8);*/
+}
+
+.todo{
+  margin-top: 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  /*background-color: rgba(0,0,0,0.5);*/
+  background-color: #eee;
+  padding: 0.5rem;
+  -webkit-animation: fade-in 0.5s linear forwards;
+  -o-animation: fade-in 0.5s linear forwards;
+  animation: fade-in 0.5s linear forwards;
+}
+
+
+.todos a{
   color: white;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  padding: 1rem;
+}
+
+.todo i{
+  /*opacity: 0.7;*/
+  /*color: var(--theme-color);*/
 }
 
 .form-body{
-  padding: 1rem;
+  padding: 2.5rem;
 }
 
 .form-body input[type=text]{
-  background-color: #222;
+  /*background-color: #222;*/
   outline: none;
   border: none;
-  padding: 0.5rem;
-  color: #aaa;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: 0.05rem solid #ccc;
+  /*border: 0.1rem solid var(--theme-color);*/
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  font-family: roboto;
+  font-size: 1rem;
 }
 
-.form-body input[type=submit], #select-multiple-button{
-  background-color: crimson;
+/*.form-body input[type=text]:focus{
+  border: 0.07rem solid var(--theme-color);
+
+}*/
+
+.form-body label, #select-multiple-button{
+  background-color: var(--theme-color);
   color: white;
   border: none;
   padding: 0.5rem;
+  outline: none;
 }
 
 #select-multiple-button{
+    border-top-left-radius: 1rem;
+}
+
+#delete-selected-button,#select-multiple-button{
+  outline: none;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  font-family: roboto;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#delete-selected-button{
+  background-color: crimson;
+  width: 100%;
 
 }
 
 
 #form{
   display: flex;
+}
+
+#form input[type=submit]{
+  padding: 0.5rem;
+  font-family: roboto;
+  background-color: var(--theme-color);
+  outline: none;
+  border: none;
+  color: white;
+}
+
+#close{
+  color: white;
 }
 
 #update-form-container, #delete-selected-prompt{
@@ -79,6 +174,53 @@ main{
   -webkit-animation: fade-in 1 0.2s linear forwards;
   -o-animation: fade-in 1 0.2s linear forwards;
   animation: fade-in 1 0.2s linear forwards;
+}
+
+#update-form-container form{
+  display: flex;
+}
+
+#update-form-container input[type=text]{
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  font-family: roboto;
+  font-size: 1rem;
+}
+
+#close{
+  color: red;
+  position: relative;
+  top: -2rem;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#update-form-container input[type=submit]{
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  font-family: roboto;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--theme-color);
+}
+
+#delete-selected-prompt{
+  color: white;
+}
+
+#delete-selected-prompt a{
+  text-decoration: none;
+}
+
+#yes-delete-selected{
+  color: red;
+}
+
+#yes-delete-selected + a{
+  color: purple;
 }
 
 @keyframes fade-in{

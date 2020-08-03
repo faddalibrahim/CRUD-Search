@@ -1,9 +1,10 @@
 //showing the update form overlay
 document.querySelector(".todos").addEventListener("click", function(e){
-  if(e.target.textContent === 'update'){
+  if(e.target.className === 'update-btn'){
      document.querySelector("#update-form-container").style.display = "flex";
      document.querySelector("#update-form input[type=text]").value = e.target.dataset.data;
-     document.querySelector("#update-form input[type=hidden]").value = e.target.value;
+     document.querySelector("#update-form .id-field").value = e.target.dataset.id;
+     alert("yeh hats it");
 
   }
 

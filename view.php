@@ -44,38 +44,65 @@
   <link rel="icon" type="image/ico" href="img/favicon.ico"/>
 </head>
 
+<style type="text/css">
+  #parent{
+    /*box-shadow: 0 0 1rem 0rem rgba(13,12,14,0.2);*/
+    border: 0.05rem solid #ccc;
+    border-radius: 0.5rem;
+    padding: 3rem;
+  }
+
+  .form-body{
+    padding-left: 0;
+  }
+
+  input[type=submit]{
+    padding: 0.5rem;
+    background-color: navy;
+    color: white;
+    outline: none;
+    border: none;
+  }
+</style>
+
 <body>
     <main>
-        <!-- success and error messages -->
-        <?php
+      <div id="parent"> 
+          <!-- success and error messages -->
+          <center style="color: #5cb85c">  
+            <?php
 
-            if(isset($_GET['update']) and $_GET['update'] === 'success'){
-                echo "update successful";
-            }else if(isset($_GET['update']) and $_GET['update'] === 'fail'){
-                echo "update failed";
-            }
-        ?>
+                if(isset($_GET['update']) and $_GET['update'] === 'success'){
+                    echo "update successful";
+                }else if(isset($_GET['update']) and $_GET['update'] === 'fail'){
+                    echo "update failed";
+                }
+            ?>
+          </center>
 
-        <?php if($todo): ?>
-            <p>
-                <?php echo htmlspecialchars($todo['name'])  ?>
-            </p>
-            <p>
-                <?php echo htmlspecialchars($todo['created_at'])  ?>
-            </p>
-        <?php else: ?>
-            <?php die("<p>no such item exists</p>") ?>
-        <?php endif ?>
+          <?php if($todo): ?>
+              <h1 style="text-transform: capitalize;">
+                  <?php echo htmlspecialchars($todo['name'])  ?>
+              </h1>
+              <small style="color: #bbb">
+                  <?php echo htmlspecialchars($todo['created_at'])  ?>
+              </small>
+          <?php else: ?>
+              <?php die("<p>no such item exists</p>") ?>
+          <?php endif ?>
 
-        <!-- update form -->
-        <form id="form" action="update.php" method="POST" autocomplete="off">
-            <input type="text" placeholder="new update" required name="new_update">
-            <input type="hidden" required name="id" value="<?php echo htmlspecialchars($todo['id']) ?>">
-            <input type="hidden" required name="origin" value="view-page">
-            <input type="submit" value="update" name="update">
-        </form>
+          <br>
 
-       <a href="index.php">home page</a>
+          <!-- update form -->
+          <form id="form" action="update.php" method="POST" class="form-body" autocomplete="off">
+              <input type="text" placeholder="new update" required name="new_update">
+              <input type="hidden" required name="id" value="<?php echo htmlspecialchars($todo['id']) ?>">
+              <input type="hidden" required name="origin" value="view-page">
+              <input type="submit" value="update" name="update">
+          </form>
+
+         <a href="index.php" style="text-decoration: none; color: navy">Back to home page</a>
+      </div>
     </main>
 
 
