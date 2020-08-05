@@ -5,7 +5,7 @@
 }
 
 :root{
-  --theme-color: navy;
+  --theme-color: purple;
 }
 
 
@@ -17,12 +17,14 @@ main{
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  background-color: #111;
 }
 
 .crud{
-  box-shadow: 0 0 0.5rem 0.1rem rgba(13,12,14,0.2);
+  box-shadow: 0 0 1rem 0.1rem #222;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  background-color: rgba(13,12,14,1);
 }
 
 .success-error{
@@ -66,6 +68,7 @@ a{
   /*padding: 1rem;*/
   /*border-top: 0.05rem solid #ccc;*/
   /*color: rgba(13,12,14,0.8);*/
+
 }
 
 .todo{
@@ -73,7 +76,9 @@ a{
   display: flex;
   justify-content: space-between;
   /*background-color: rgba(0,0,0,0.5);*/
-  background-color: #eee;
+  background-color: #222;
+  /*background-color: red;*/
+  color: #aaa;
   padding: 0.5rem;
   -webkit-animation: fade-in 0.5s linear forwards;
   -o-animation: fade-in 0.5s linear forwards;
@@ -92,20 +97,22 @@ a{
 
 .form-body{
   padding: 2.5rem;
+  background-color: rgba(13,12,14,1);
 }
 
 .form-body input[type=text]{
-  /*background-color: #222;*/
+  background-color: #222;
   outline: none;
   border: none;
   padding: 0.5rem 1rem;
   width: 100%;
-  border: 0.05rem solid #ccc;
+  /*border: 0.05rem solid #ccc;*/
   /*border: 0.1rem solid var(--theme-color);*/
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
   font-family: roboto;
   font-size: 1rem;
+  color: #aaa;
 }
 
 /*.form-body input[type=text]:focus{

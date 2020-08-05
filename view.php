@@ -46,14 +46,18 @@
 
 <style type="text/css">
   #parent{
-    /*box-shadow: 0 0 1rem 0rem rgba(13,12,14,0.2);*/
-    border: 0.05rem solid #ccc;
+    /*box-shadow: 0 0 1rem 0rem rgba(13,12,14,0.5);*/
+    /*box-shadow: 0 0 1rem 0rem #333;*/
+    /*box-shadow: 0 0 0.5rem 0.1rem #aaa;*/
+    box-shadow: 0 0 1rem 0.1rem #222;
+    /*border: 0.05rem solid #aaa;*/
     border-radius: 0.5rem;
     padding: 3rem;
   }
 
   .form-body{
     padding-left: 0;
+    background-color: transparent;
   }
 
   input[type=submit]{
@@ -81,14 +85,14 @@
           </center>
 
           <?php if($todo): ?>
-              <h1 style="text-transform: capitalize;">
+              <h1 style="text-transform: capitalize; color: #aaa">
                   <?php echo htmlspecialchars($todo['name'])  ?>
               </h1>
               <small style="color: #bbb">
                   <?php echo htmlspecialchars($todo['created_at'])  ?>
               </small>
           <?php else: ?>
-              <?php die("<p>no such item exists</p>") ?>
+              <?php die("<p style='color:#aaa'>no such item exists</p>") ?>
           <?php endif ?>
 
           <br>
@@ -101,7 +105,7 @@
               <input type="submit" value="update" name="update">
           </form>
 
-         <a href="index.php" style="text-decoration: none; color: navy">Back to home page</a>
+         <a href="index.php" style="text-decoration: none; color: purple">Back to home page</a>
       </div>
     </main>
 

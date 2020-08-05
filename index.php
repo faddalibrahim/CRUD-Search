@@ -59,7 +59,7 @@
             <center style="color: #5cb85c" class="success-error">
               <?php echo $_GET['add'] ?? $_GET['delete'] ?? $_GET['update'] ?? $_GET['deletes'] ?? '' ?>
             </center>
-            <!-- <br> -->
+            <br>
 
             <!-- ADD FORM -->
             <form id="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off" id="addForm">
@@ -87,10 +87,10 @@
                           <?php echo htmlspecialchars($todo['name']) ?>
                         </div>
                         <div class="action">
-                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: red">delete</a>
-                          <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: purple">view</a>
+                          <a href="index.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: violet">delete</a>
+                          <a href="view.php?id=<?php echo htmlspecialchars($todo['id']) ?>" style="color: violet">view</a>
                          
-                          <span data-id="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>" class="update-btn" style="color: navy">update</span>
+                          <span data-id="<?php echo htmlspecialchars($todo['id']) ?>" data-data="<?php echo htmlspecialchars($todo['name'])?>" class="update-btn" style="color: violet">update</span>
                         </div>
                       </div>
                   <?php endforeach ?>
