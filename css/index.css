@@ -21,10 +21,9 @@ main{
 }
 
 .crud{
-  box-shadow: 0 0 1rem 0.1rem #222;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  background-color: rgba(13,12,14,1);
+  background-color: #13131387;
 }
 
 .success-error{
@@ -97,7 +96,7 @@ a{
 
 .form-body{
   padding: 2.5rem;
-  background-color: rgba(13,12,14,1);
+  /*background-color: rgba(13,12,14,0.5);*/
 }
 
 .form-body input[type=text]{
